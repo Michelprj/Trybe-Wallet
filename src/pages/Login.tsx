@@ -32,6 +32,7 @@ function Login() {
     <div>
       <input
         type="email"
+        placeholder="E-mail"
         name="email"
         value={ login.email }
         onChange={ handleChange }
@@ -39,6 +40,7 @@ function Login() {
       />
       <input
         type="password"
+        placeholder="Senha"
         name="password"
         value={ login.password }
         onChange={ handleChange }
