@@ -11,8 +11,6 @@ const INITIAL_STATE = {
 let id = 0;
 
 const wallet = (state = INITIAL_STATE, action: AnyAction) => {
-  const getState = state.expenses;
-
   switch (action.type) {
     case REQUEST_STARTED:
       return {

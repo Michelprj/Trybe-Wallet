@@ -1,4 +1,4 @@
-import { Dispatch, ExpensesType, GetState } from '../../types';
+import { Dispatch, ExpensesType } from '../../types';
 import fetchAPI from '../../utils/fetchAPI';
 
 export const LOGIN_WALLET = 'LOGIN_WALLET';
