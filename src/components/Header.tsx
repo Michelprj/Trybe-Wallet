@@ -1,9 +1,15 @@
 import { useSelector } from 'react-redux';
-import { UserType } from '../types';
+import { GlobalTypes, UserType } from '../types';
 
 function Header() {
   const { user: { email } } = useSelector((state: UserType) => state);
-  console.log(email);
+  const { wallet: { expenses } } = useSelector((state: GlobalTypes) => state);
+
+  const total = expenses.reduce((soma, expense) => {
+    const { currency, exchangeRates, value }: any = expense;
+    soma += exchangeRates[currency].ask * value;
+    return soma;
+  }, 0);
 
   return (
     <div>
@@ -13,7 +19,7 @@ function Header() {
         {email}
       </span>
       <span data-testid="total-field">
-        0
+        {total.toFixed(2)}
       </span>
       <span data-testid="header-currency-field">
         BRL

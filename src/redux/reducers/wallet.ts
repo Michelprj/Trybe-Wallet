@@ -5,23 +5,13 @@ import { ADD_EXPENSE, REQUEST_STARTED, REQUEST_SUCCESS } from '../actions';
 const INITIAL_STATE = {
   isFetching: false,
   currencies: [],
-  expenses: [
-    {
-      id: 0,
-      value: '',
-      currency: 'USD',
-      method: 'Dinheiro',
-      tag: 'Alimentação',
-      description: '',
-    },
-  ],
+  expenses: [],
 };
 
+let id = 0;
+
 const wallet = (state = INITIAL_STATE, action: AnyAction) => {
-  const addNewExpense = [...state.expenses, action.payload];
-  console.log(addNewExpense);
-  const id = state.expenses.length;
-  console.log(id);
+  const getState = state.expenses;
 
   switch (action.type) {
     case REQUEST_STARTED:
@@ -39,12 +29,8 @@ const wallet = (state = INITIAL_STATE, action: AnyAction) => {
       return {
         ...state,
         expenses: [...state.expenses, {
-          id,
-          value: action.payload.value,
-          currency: action.payload.currency,
-          method: action.payload.method,
-          tag: action.payload.tag,
-          description: action.payload.description,
+          ...action.payload,
+          id: id++,
         }],
       };
     default:

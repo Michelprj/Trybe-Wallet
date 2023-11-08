@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch, GlobalTypes } from '../types';
 import { addExpense, fetchCurrency } from '../redux/actions';
+import fetchAPI from '../utils/fetchAPI';
 
 const INITIAL_STATE = {
-  id: 0,
   value: '',
   description: '',
-  currency: '',
+  currency: 'USD',
   method: '',
   tag: '',
+  exchangeRates: '',
 };
 
 function WalletForm() {
@@ -31,9 +32,19 @@ function WalletForm() {
     ));
   };
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    dispatch(addExpense(values));
+    dispatch(addExpense({
+      ...values,
+      exchangeRates: await fetchExchange(),
+    }));
+    setValues(INITIAL_STATE);
+  };
+
+  const fetchExchange = async () => {
+    const response = await fetchAPI('https://economia.awesomeapi.com.br/json/all');
+    delete response.USDT;
+    return response;
   };
 
   return (
@@ -41,7 +52,7 @@ function WalletForm() {
       <label>
         Valor:
         <input
-          type="text"
+          type="number"
           name="value"
           value={ values.value }
           onChange={ handleChange }
