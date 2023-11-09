@@ -5,6 +5,7 @@ import { addExpense, fetchCurrency } from '../redux/actions';
 import fetchAPI from '../utils/fetchAPI';
 
 const INITIAL_STATE = {
+  id: 0,
   value: '',
   description: '',
   currency: 'USD',

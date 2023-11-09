@@ -6,6 +6,7 @@ export const REQUEST_STARTED = 'REQUEST_STARTED';
 export const REQUEST_SUCCESS = 'REQUEST_SUCCESS';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const GET_PRICE = 'GET_PRICE';
+export const UPDATE_EXPENSES = 'UPDATE_EXPENSES';
 
 // action para adicionar email de login
 export const actionLogin = (email: string) => ({
@@ -39,7 +40,12 @@ export const fetchCurrency = () => {
 };
 
 // adiciona expenses com os valores adicionados
-export const addExpense = (expenses: Omit<ExpensesType, 'id'>) => ({
+export const addExpense = (expenses: ExpensesType) => ({
   type: ADD_EXPENSE,
+  payload: expenses,
+});
+
+export const updateExpense = (expenses: ExpensesType[]) => ({
+  type: UPDATE_EXPENSES,
   payload: expenses,
 });

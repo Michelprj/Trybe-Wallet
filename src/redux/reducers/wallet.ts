@@ -1,5 +1,9 @@
 import { AnyAction } from 'redux';
-import { ADD_EXPENSE, REQUEST_STARTED, REQUEST_SUCCESS } from '../actions';
+import {
+  ADD_EXPENSE,
+  REQUEST_STARTED,
+  REQUEST_SUCCESS,
+  UPDATE_EXPENSES } from '../actions';
 
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
 const INITIAL_STATE = {
@@ -30,6 +34,11 @@ const wallet = (state = INITIAL_STATE, action: AnyAction) => {
           ...action.payload,
           id: id++,
         }],
+      };
+    case UPDATE_EXPENSES:
+      return {
+        ...state,
+        expenses: action.payload,
       };
     default:
       return state;
