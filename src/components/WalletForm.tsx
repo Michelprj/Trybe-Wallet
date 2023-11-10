@@ -74,19 +74,14 @@ function WalletForm() {
         exchangeRates,
       });
     }
-    console.log('editar');
   }, [editor]);
 
   const handleEdit = () => {
     const editedValues = expenses.map((expense) => (idToEdit === expense.id
       ? values
       : expense));
-
     dispatch(updateExpense(editedValues));
     setValues(INITIAL_STATE);
-    console.log(editedValues);
-
-    console.log('clicou');
   };
 
   return (

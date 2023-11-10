@@ -16,7 +16,7 @@ describe('Teste se a aplicação cobre 60% de testes.', () => {
     expect(btnElement).toBeInTheDocument();
   });
 
-  it('Verifica se é possível digitar nos inputs de login.', async () => {
+  it('Verifica se é possível digitar nos inputs de login, e após acessar a página Wallet com seus respectibos .', async () => {
     const email = 'test@trybe.com';
     const password = '123456';
     const { user } = renderWithRouterAndRedux(<App />);
@@ -33,9 +33,19 @@ describe('Teste se a aplicação cobre 60% de testes.', () => {
     await user.click(btnElement);
     const emailHeader = screen.getByText(/email:/i);
     expect(emailHeader).toBeInTheDocument();
-  });
 
-  it('Verifica se o componente Wallet possui suas respectivas funções.', async () => {
-    renderWithRouterAndRedux(<App />);
+    const inputValue = screen.getByRole('spinbutton', { name: /valor:/i });
+    expect(inputValue).toBeInTheDocument();
+    await user.type(inputValue, '100');
+    expect(inputValue).toHaveValue(100);
+
+    const inputDesctiption = screen.getByRole('spinbutton', { name: /valor:/i });
+    expect(inputDesctiption).toBeInTheDocument();
+
+    const btnAdd = screen.getByRole('button', { name: /adicionar despesa/i });
+    expect(btnAdd).toBeInTheDocument();
+
+    const removeElement = screen.getByRole('columnheader', { name: /editar\/excluir/i });
+    expect(removeElement).toBeInTheDocument();
   });
 });
