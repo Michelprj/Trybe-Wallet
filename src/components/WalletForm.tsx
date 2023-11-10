@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch, GlobalTypes } from '../types';
-import { addExpense, fetchCurrency } from '../redux/actions';
+import { addExpense, fetchCurrency, updateExpense } from '../redux/actions';
 import fetchAPI from '../utils/fetchAPI';
 
 const INITIAL_STATE = {
@@ -17,7 +17,11 @@ const INITIAL_STATE = {
 function WalletForm() {
   const [values, setValues] = useState(INITIAL_STATE);
   const dispatch: Dispatch = useDispatch();
-  const { wallet: { currencies } } = useSelector((state: GlobalTypes) => state);
+  const { wallet: {
+    currencies,
+    expenses,
+    editor,
+    idToEdit } } = useSelector((state: GlobalTypes) => state);
 
   useEffect(() => {
     dispatch(fetchCurrency());
@@ -46,6 +50,43 @@ function WalletForm() {
     const response = await fetchAPI('https://economia.awesomeapi.com.br/json/all');
     delete response.USDT;
     return response;
+  };
+
+  const valuesToEdit = expenses
+    .find((expense) => expense.id === idToEdit);
+
+  useEffect(() => {
+    if (editor && valuesToEdit) {
+      const { id,
+        value,
+        description,
+        currency, method,
+        tag,
+        exchangeRates } = valuesToEdit;
+
+      setValues({
+        id,
+        value,
+        description,
+        currency,
+        method,
+        tag,
+        exchangeRates,
+      });
+    }
+    console.log('editar');
+  }, [editor]);
+
+  const handleEdit = () => {
+    const editedValues = expenses.map((expense) => (idToEdit === expense.id
+      ? values
+      : expense));
+
+    dispatch(updateExpense(editedValues));
+    setValues(INITIAL_STATE);
+    console.log(editedValues);
+
+    console.log('clicou');
   };
 
   return (
@@ -108,8 +149,12 @@ function WalletForm() {
         <option value="Transporte">Transporte</option>
         <option value="Saúde">Saúde</option>
       </select>
+      {
+          editor
+            ? <button onClick={ handleEdit }>Editar despesa</button>
+            : <button onClick={ handleClick }>Adicionar despesa</button>
 
-      <button onClick={ handleClick }>Adicionar despesa</button>
+        }
     </>
   );
 }

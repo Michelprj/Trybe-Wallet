@@ -1,10 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Dispatch, GlobalTypes } from '../types';
-import { updateExpense } from '../redux/actions';
+import { Dispatch, ExpensesType, GlobalTypes } from '../types';
+import { editExpense, updateExpense } from '../redux/actions';
 
 function Table() {
   const { wallet: { expenses } } = useSelector((state: GlobalTypes) => state);
   const dispatch: Dispatch = useDispatch();
+
+  const handleEdit = (id: number | undefined) => {
+    const idToEdit = expenses
+      .find((expense: Pick<ExpensesType, 'id'>) => expense.id === id);
+    dispatch(editExpense(idToEdit?.id));
+  };
 
   const handleRemove = (id: number) => {
     const remove = expenses.filter((expense) => expense.id !== id);
@@ -41,7 +47,13 @@ function Table() {
             </td>
             <td>Real</td>
             <td>
-              <button>Editar</button>
+              <button
+                data-testid="edit-btn"
+                onClick={ () => handleEdit(item.id) }
+              >
+                Editar
+
+              </button>
               <button
                 data-testid="delete-btn"
                 onClick={ () => handleRemove(item.id) }

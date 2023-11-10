@@ -1,6 +1,7 @@
 import { AnyAction } from 'redux';
 import {
   ADD_EXPENSE,
+  EDIT_EXPENSES,
   REQUEST_STARTED,
   REQUEST_SUCCESS,
   UPDATE_EXPENSES } from '../actions';
@@ -10,6 +11,8 @@ const INITIAL_STATE = {
   isFetching: false,
   currencies: [],
   expenses: [],
+  editor: false,
+  idToEdit: '',
 };
 
 let id = 0;
@@ -39,6 +42,13 @@ const wallet = (state = INITIAL_STATE, action: AnyAction) => {
       return {
         ...state,
         expenses: action.payload,
+        editor: false,
+      };
+    case EDIT_EXPENSES:
+      return {
+        ...state,
+        editor: true,
+        idToEdit: action.payload,
       };
     default:
       return state;
