@@ -3,7 +3,7 @@ import App from '../../App';
 import { renderWithRouterAndRedux } from './renderWith';
 import { ADD_EXPENSE, EDIT_EXPENSES, REQUEST_STARTED, REQUEST_SUCCESS, UPDATE_EXPENSES } from '../../redux/actions';
 import wallet from '../../redux/reducers/wallet';
-import WalletForm from '../../components/WalletForm';
+import WalletForm from '../../components/walletForm/WalletForm';
 
 describe('Teste se a aplicação cobre 60% de testes.', () => {
   it('Verifica se a página de login possui os devidos campos.', () => {
