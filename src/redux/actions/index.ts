@@ -16,11 +16,11 @@ export const actionLogin = (email: string) => ({
 });
 
 // realiza busca de currencies para select
-const requestStarted = () => ({
+export const requestStarted = () => ({
   type: REQUEST_STARTED,
 });
 
-const getCurrency = (currencies: string[]) => ({
+export const getCurrency = (currencies: string[]) => ({
   type: REQUEST_SUCCESS,
   payload: currencies,
 });
