@@ -2,6 +2,9 @@
 
 Bem-vindo ao React Trybe Wallet, uma aplicação de controle de gastos pessoais com um prático conversor de moedas integrado. Este projeto foi desenvolvido utilizando as tecnologias React e Redux, proporcionando uma gestão eficiente do estado da aplicação e uma experiência de usuário fluida.
 
+## Deploy do projeto 
+https://trybe-wallet-michels-projects-f53c20b3.vercel.app/
+
 ## Funcionalidades Principais
 
 - **Controle de Gastos:** Registre suas despesas de forma organizada e mantenha o controle do seu orçamento de maneira eficaz.
