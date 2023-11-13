@@ -1,6 +1,6 @@
 # React Redux Wallet
 
-Bem-vindo ao React Redux Wallet, uma aplicação de controle de gastos pessoais com um prático conversor de moedas integrado. Este projeto foi desenvolvido utilizando as tecnologias React e Redux, proporcionando uma gestão eficiente do estado da aplicação e uma experiência de usuário fluida.
+Bem-vindo ao React Trybe Wallet, uma aplicação de controle de gastos pessoais com um prático conversor de moedas integrado. Este projeto foi desenvolvido utilizando as tecnologias React e Redux, proporcionando uma gestão eficiente do estado da aplicação e uma experiência de usuário fluida.
 
 ## Funcionalidades Principais
 
