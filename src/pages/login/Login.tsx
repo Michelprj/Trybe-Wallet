@@ -11,12 +11,7 @@ const INITIAL_STATE = {
   password: '',
 };
 
-type Props = {
-  renderDarkMode: () => void;
-  isDark: boolean;
-};
-
-function Login({ renderDarkMode, isDark }: Props) {
+function Login() {
   const [login, setLogin] = useState(INITIAL_STATE);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -38,20 +33,6 @@ function Login({ renderDarkMode, isDark }: Props) {
 
   return (
     <Container>
-      {/* <label htmlFor="iconDark">
-        <input
-          type="checkbox"
-          name="iconDark"
-          id="iconDark"
-          style={ { display: 'none' } }
-          onClick={ renderDarkMode }
-        />
-        {
-        isDark
-          ? <LightModeIcon />
-          : <NightlightRoundIcon />
-      }
-      </label> */}
       <Logo>
         <img
           src="emoji.svg"

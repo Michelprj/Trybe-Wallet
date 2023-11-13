@@ -10,7 +10,7 @@ export const Container = styled.div`
   left: 0%;
   margin: 0 7em ;
   top: 0%;
-  position: fixed;
+  position: absolute;
   right: 0%;
 
   label {

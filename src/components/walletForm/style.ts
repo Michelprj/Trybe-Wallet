@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    background: rgba(225, 229, 235, 0.49);
+    background: rgba(225, 229, 235, 0.99);
+    box-shadow: -16px 0 7px 0 rgba(0,0,0,0.1), 4px 0 7px 0 rgba(0,0,0,0.1);
     display: flex;
     flex-wrap: wrap;
     height: 21%;
     justify-content: space-evenly;
     left: 0%;
     margin: 0 7em;
-    position: fixed;
+    position: absolute;
     right: 0%;
     top: 30.6%;
+    z-index: 2;
 
     label {
       align-items: center;
@@ -70,15 +72,17 @@ export const ContainerButton = styled.div`
   background: white;
   border-end-end-radius: 10px;
   border-end-start-radius: 10px;
+  box-shadow: -4px 13px 7px 14px rgba(0,0,0,0.1);
   display: flex;
   flex-wrap: wrap;
   height: 17%;
   justify-content: space-evenly;
   left: 0%;
   margin: 0 7em;
-  position: fixed;
+  position: absolute;
   right: 0%;
   top: 51.6%;
+  z-index: 1;
 
   button {
     background: #2FC18C;
