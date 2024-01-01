@@ -13,6 +13,13 @@ export const Container = styled.div`
   position: absolute;
   right: 0%;
 
+  .container-infos {
+      display: flex;
+      flex-direction: row;
+      gap: 2vw;
+      margin: 0 4vw;
+    }
+
   label {
     display: flex;
 
@@ -44,6 +51,118 @@ export const Container = styled.div`
 
     img {
       margin-right: 0.4em;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    margin: 0 4em ;
+
+    .logo {
+      height: auto;
+      width: 20vw;
+    }
+
+    label {
+      img {
+        height: auto;
+        width: 25px;
+      }
+
+      span {
+        p {
+          font-size: 14px;
+          font-weight: 500;
+          margin-right: 0.5em;
+        }
+      }
+    }
+
+    #email {
+      font-weight: 500;
+      font-size: 14px;
+
+      img {
+        height: auto;
+        width: 25px;
+      }
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    flex-direction: column;
+    margin: 0 2em;
+
+    .logo {
+      height: auto;
+      width: 40vw;
+    }
+
+    label {
+      img {
+        height: auto;
+        width: 25px;
+      }
+
+      span {
+        font-size: 16px;
+        p {
+          font-size: 16px;
+          font-weight: 600;
+          margin-right: 0.5em;
+        }
+      }
+    }
+
+    #email {
+      font-weight: 600;
+      font-size: 16px;
+
+      img {
+        height: auto;
+        width: 25px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    margin: 0 1em;
+
+    .container-infos {
+      display: flex;
+      gap: 2vw;
+      margin: 0 4vw;
+    }
+
+    .logo {
+      height: auto;
+      width: 40vw;
+    }
+
+    label {
+      margin-right: 5px;
+      img {
+        height: auto;
+        width: 15px;
+      }
+
+      span {
+        font-size: 10px;
+        p {
+          font-size: 10px;
+        }
+      }
+    }
+
+    #email {
+      font-weight: 600;
+      font-size: 10px;
+
+      img {
+        height: auto;
+        width: 15px;
+      }
     }
   }
 `;

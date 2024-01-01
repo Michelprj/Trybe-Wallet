@@ -1,20 +1,28 @@
 import styled from 'styled-components';
 
-export const Container = styled.table`
+export const Container = styled.div`
   background-color: #003BE5;
   color: #2FC18C;
   text-align: center;
-  position: -webkit-sticky;
-  top: 30.5%;
-  margin: 2.45%;
-  padding: 20% 4% 5% 4%;
+  position: absolute;
+  top: 30.6%;
+  margin: 0 4.5vw;
+  padding: 40vh 4% 5% 4%;
+  left: 0%;
+  width: 90vw;
   border-radius: 10px;
   box-shadow: -4px 13px 7px 14px rgba(0,0,0,0.1);
 
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+  }
+
   th {
     color: white;
-    padding: 0 2em;
     border-bottom: 1px solid white;
+    padding: 0 5px;
   }
   
   th + th {
@@ -35,6 +43,67 @@ export const Container = styled.table`
     margin-left: 0.5em;
     background: transparent;
     border: none;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    th {
+      font-size: 13px;
+      padding: 0 5px;
+    }
+  
+    tr {
+      font-size: 13px;
+    }
+
+    button {
+      margin-left: 0.2em;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    top: 30.6%;
+    margin: 0 1vw;
+    padding: 60vh 2% 3%;
+    width: 95vw;
+
+    th {
+      font-size: 1.5vw;
+    }
+  
+    tr {
+      font-size: 1.5vw;
+    }
+
+    button {
+      margin-left: 0.2em;
+    }
+
+    button img {
+      width: 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    top: 33.6%;
+    margin: 0 1vw;
+    padding: 60vh 2% 3%;
+    width: 95vw;
+
+    th {
+      font-size: 1.7vw;
+    }
+  
+    tr {
+      font-size: 1.7vw;
+    }
+
+    button {
+      margin-left: 0.2em;
+    }
+
+    button img {
+      width: 15px;
+    }
   }
 
 `;

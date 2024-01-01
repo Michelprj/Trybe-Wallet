@@ -14,22 +14,28 @@ function Header() {
 
   return (
     <Container>
-      <img src="logo Trybe Wallet.svg" alt="logo" />
-      <label>
-        <img src="Moedas.svg" alt="Moedas" />
-        <span data-testid="total-field">
-          <p>Total de despesas:</p>
-          {total.toFixed(2)}
+      <div>
+        <img src="logo Trybe Wallet.svg" alt="logo" className='logo' />
+      </div>
+
+      <div className='container-infos'>
+        <label>
+          <img src="Moedas.svg" alt="Moedas" />
+          <span data-testid="total-field">
+            <p>Total de despesas:</p>
+            {total.toFixed(2)}
+          </span>
+          <span data-testid="header-currency-field">
+            BRL
+          </span>
+        </label>
+
+        <span data-testid="email-field" id="email">
+          <img src="Vector.svg" alt="perfil" />
+          {' '}
+          {email}
         </span>
-        <span data-testid="header-currency-field">
-          BRL
-        </span>
-      </label>
-      <span data-testid="email-field" id="email">
-        <img src="Vector.svg" alt="perfil" />
-        {' '}
-        {email}
-      </span>
+      </div>
     </Container>
   );
 }

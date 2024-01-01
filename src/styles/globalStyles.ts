@@ -1,15 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  /* @font-face {
-    font-family: "Josefin Sans";
-    src: url("/fonts/JosefinSans-VariableFont_wght.ttf");
-  } */
-
-  /* :root {
-    font-family: "Josefin Sans", sans-serif;
-  } */
-
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${(props) => props.theme.colors.background};
     display: flex;
     justify-content: center;
-    margin-top: 10rem;
+    align-items: center;
 
     background-image: url(${(props) => props.theme.colors.image});
     background-size: 100%;

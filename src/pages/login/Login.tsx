@@ -33,18 +33,13 @@ function Login() {
 
   return (
     <Container>
-      <Logo>
-        <img
-          src="emoji.svg"
-          alt="emoji"
-          id="logo"
-        />
-        <img src="Rectangle 1.svg" alt="Rectangle" id="Rectangle1" />
-        <img src="Rectangle 2.png" alt="Rectangle" id="Rectangle2" />
-        <img src="Trybe.svg" alt="Trybe" id="Trybe" />
-        <img src="Wallet.svg" alt="Wallet" id="Wallet" />
-      </Logo>
       <BodyLogin>
+        <Logo>
+          <img
+            src="logo.png"
+            alt="emoji"
+          />
+        </Logo>
         <Input
           type="email"
           placeholder="E-mail"
